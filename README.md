@@ -33,4 +33,4 @@ Insert the JavaScript file right before the closing Body element of your HTML do
 </script>
 ```
 ## Live Demo
-[View Demo](http://www.ovvshi.pp.ua/parallax/)
+[View Demo](http://www.ovvshi.pp.ua/calendar/)
