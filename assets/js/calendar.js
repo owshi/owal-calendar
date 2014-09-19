@@ -1,6 +1,4 @@
-$(document).ready(function(){
-	$("#calendar").calendar();
-})
+
 ;(function($){	
 	var a = new Date();
 	var aa;
@@ -36,7 +34,7 @@ $(document).ready(function(){
 		pickDate: false,
 	};
 	
-	$.fn.calendar = function(options){
+	$.fn.owalCalendar = function(options){
 		if(this.length == 0) return this;
 		if(this.length > 1){
 			this.each(function(){$(this).calendar(options)});
