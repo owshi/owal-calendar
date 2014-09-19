@@ -1,0 +1,176 @@
+h1 {
+	.h1;
+	text-align: center;
+	margin: 10px 0;
+}
+h2 {
+	.h2;
+}
+h3 {
+	.h3;
+}
+h4 {
+	.h4
+}
+h5 {
+	.h5;
+}
+body {
+	background-color: @background;
+
+	background-repeat: repeat-x;
+	.body-font;
+}
+a {
+	.link-font;
+}
+main {
+	text-align: center;
+}
+.date-input, .date-picker {
+	display: inline-block;
+}
+.date-picker {
+	.clearfix;
+	background-color: lighten(@background,15%);
+	width: 50*7px;
+}
+.calendar-head {
+	.clearfix;
+	background-color: darken(@background,15%);
+	color: #fff;
+}
+.calendar-body, .calendar-footer {
+		.clearfix;
+}
+.days {
+	
+	.day {
+		display: block;
+		float: left;
+		padding: 10px 0;
+		width: 50px;
+		text-align: center;
+
+	}
+}
+.dates {
+	.date {
+		&:hover {
+			background: #efefef;
+		}
+		.transition(0.2s background linear);
+		cursor: pointer;
+		box-sizing:border-box;
+		display: block;
+		float: left;
+		width: 50px;
+		height: 50px;
+		text-align: center;
+		border: 3px solid transparent;
+		line-height: 45px;
+		vertical-align: middle;
+		font-size: 20px;
+	}
+	.date.today {
+		border: 3px solid @background;
+	}
+	.date.not-this-month {
+		color: lighten(@background,1%);
+	}
+}
+.year-picker, .month-picker {
+	position: relative;
+	font-size: 22px;
+	border-bottom: 3px solid @background;
+	font-weight: bold;
+	padding: 10px 0;
+	.prev, .next {
+		position: absolute;
+
+		width: 25px;
+		background: darken(@background,20%);
+		height: 100%;
+		top: 0;		
+		z-index: 2;
+	}
+	i {
+		display: block;
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		top: 50%;
+		.transform(translateY(-50%));
+		right: 30px;
+		border-radius: 50%;
+		cursor: pointer;
+		background-color: @background;
+	}
+	.prev {
+		left: 0;
+	}
+	.next {
+		right: 0;
+	}
+}
+.year-picker {
+	.dropdown {
+		display: none;
+		position: absolute;
+		padding: 5px 0;
+		top: 35px;
+		right: 10px;
+		background: #fff;
+		border: 1px solid @background;
+		z-index: 5;
+		.year-input {
+			width: 70%;
+		}
+		li {
+			color: #777;
+			padding: 3px 20px;
+			cursor: pointer;
+			font: normal 14px "Arial", sans-serif;
+			&:hover {
+				background:@background;
+			}
+			&.active {
+				font-weight: bold;				
+			}
+		}
+	}
+}
+.month-picker {
+	.dropdown {
+		display: none;
+		position: absolute;
+		padding: 5px 0;
+		top: 35px;
+		right: 10px;
+		background: #fff;
+		border: 1px solid @background;
+		z-index: 3;
+		li {
+			color: #777;
+			padding: 3px 20px;
+			cursor: pointer;
+			font: normal 14px "Arial", sans-serif;
+			&:hover {
+				background:@background;
+			}
+			&.active {
+				font-weight: bold;				
+			}
+		}
+	}
+}
+.calendar-footer {
+	border-top: 5px solid @background;
+	color: #eee;
+	text-align: right;
+	padding: 5px;
+	background-color: darken(@background,15%);
+	p {
+		cursor: pointer;
+	}
+}
