@@ -2,6 +2,8 @@
 ;(function($){	
 	var a = new Date();
 	var aa;
+
+
 	var newDate = function(y,m){
 		if (y == undefined) y = 0;
 		if (m == undefined) m = 0;
@@ -13,6 +15,8 @@
 			aa = year+","+month+","+day;	
 			a = new Date(aa);
 	}	
+
+	// Setting custom date
 	var newSettedDate = function(y,m){
 		if (y == undefined) y = 0;
 		if (m == undefined) m = 0;
@@ -26,7 +30,7 @@
 	}
 	newDate();
 	
-	var days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+	var days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 	var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
 	var defaults = {
@@ -60,7 +64,7 @@
 
 	    // Setup the plugin
 	    var setup = function(){
-	    	el.html("<div class='calendar-head'><div class='year-picker'><a href='#' class='prev'></a><span></span><i class='year-change'></i><ul class='years dropdown'><input maxlength='4' name='year' class='year-input'><li>2016</li><li>2016</li><li>2016</li><li>2016</li><li>2016</li></ul><a href='#' class='next'></a></div><div class='month-picker'><a href='#' class='prev'></a><span>August</span><i class='month-change'></i><ul class='months dropdown'><li>January</li><li>February</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li class='active'>September</li><li>October</li><li>November</li><li>December</li></ul><a href='#' class='next'></a></div><div class='days'><div class='day'></div><div class='day'></div><div class='day'></div><div class='day'></div><div class='day'></div><div class='day'></div><div class='day'></div></div></div><div class='calendar-body'><div class='dates'><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div></div></div><div class='calendar-footer'><p>Go to the today</p></div>");
+	    	el.html(" <div class='calendar-head'><div class='year-picker'><a href='#' class='prev'></a><span class='year-change'></span><ul class='years dropdown'><input maxlength='4' name='year' class='year-input'><li>2016</li><li>2016</li><li>2016</li><li>2016</li><li>2016</li></ul><a href='#' class='next'></a></div><div class='month-picker'><a href='#' class='prev'></a><span class='month-change'>August</span><ul class='months dropdown'><li>January</li><li>February</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li class='active'>September</li><li>October</li><li>November</li><li>December</li></ul><a href='#' class='next'></a></div><div class='days'><div class='day'></div><div class='day'></div><div class='day'></div><div class='day'></div><div class='day'></div><div class='day'></div><div class='day'></div></div></div><div class='calendar-body'><div class='weekend'></div><div class='dates'><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div><div class='date'>x</div></div></div><div class='calendar-footer'><p>Go to the today</p></div>");
 	    }
 	    setup();
 	    // Setting year in the headbar
@@ -91,9 +95,17 @@
 	    	// Find when were 1st day of this month
 	    	var f = new Date(aa);
 		    f.setDate(1);
-		    var i = f.getDay();
+		    var i;		   
+		    if (f.getDay() == 0){
+		    	i = 6;
+		    	f.setDate(f.getDate()-i);
+		    } else {
+		    	i = f.getDay() - 1;
+		    	f.setDate(f.getDate()-i);
+		    }
+		    console.log(i);
 		    // Getting back a bit to set up all calendar cells
-		    f.setDate(f.getDate()-i);
+		
 
 	    	// Setting Cells
 	    	for (var j = 0;j<42;++j){
@@ -141,7 +153,7 @@
 	// Trigger functions
 	    $(document).on("click",function(){
 	    	$(".dropdown").hide();
-	    })
+	    });
 	    // Go next years
 	    $(".year-picker .next").on("click",function(e){
 	    	e.preventDefault();
@@ -190,6 +202,9 @@
 	    	makeYearList();
 	    	$(this).parents(".year-picker").find(".dropdown").toggle();
 	    });
+	    
+
+
 	    $(".dropdown").on("click",function(e){
 	    	 e.stopPropagation();
 	    });
